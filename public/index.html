@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090909">
+  <title>VISION AI — Video Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">V</span><span>VISION<span class="red">AI</span></span></a>
+    <div class="top-status"><span class="status-dot"></span> STUDIO <span class="divider">/</span> DEMO MODE</div>
+    <a class="github" href="https://github.com/Vlameet/VISION-AI" target="_blank" rel="noreferrer">GitHub ↗</a>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span></span> YOUR CREATIVE ENGINE</div>
+      <h1>Идеи становятся<br><span class="gradient">визуальными.</span></h1>
+      <p class="hero-copy">Твоя AI-студия для создания видео. Опиши сцену, выбери стиль и подготовь проект к генерации.</p>
+    </section>
+    <section class="workspace">
+      <div class="panel creator">
+        <div class="panel-heading"><div><span class="step">01 / CREATE</span><h2>Создать видео</h2></div><span class="spark">✳</span></div>
+        <form id="generate-form">
+          <label for="prompt">ОПИШИ СВОЮ ИДЕЮ</label>
+          <textarea id="prompt" maxlength="1200" placeholder="Например: одинокий космонавт идёт по красной пустыне Марса, кинематографичный свет, медленный пролёт камеры..." required></textarea>
+          <div class="field-meta"><span>Чем точнее описание, тем лучше результат</span><span id="counter">0 / 1200</span></div>
+          <div class="options">
+            <div class="option"><label for="style">ВИЗУАЛЬНЫЙ СТИЛЬ</label><select id="style"><option value="cinematic">Cinematic</option><option value="realistic">Realistic</option><option value="anime">Anime</option><option value="3d">3D render</option><option value="fantasy">Fantasy</option><option value="documentary">Documentary</option></select></div>
+            <div class="option"><label for="duration">ДЛИТЕЛЬНОСТЬ</label><select id="duration"><option value="5">5 секунд</option><option value="10">10 секунд</option></select></div>
+          </div>
+          <button id="submit" type="submit"><span>Подготовить генерацию</span><b>↗</b></button>
+          <p class="notice">Демо-режим: платные API не вызываются.</p>
+          <div id="feedback" role="status"></div>
+        </form>
+      </div>
+      <div class="preview panel">
+        <div class="preview-top"><span class="step">02 / PREVIEW</span><span class="live"><i></i> WORKSPACE</span></div>
+        <div class="preview-art">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="core"><span>V</span></div>
+          <div class="preview-caption"><span>CREATIVE SPACE</span><strong>Imagine<br>what's next.</strong></div>
+          <div class="corner corner-tl"></div><div class="corner corner-br"></div>
+        </div>
+        <div class="preview-bottom"><span>OUTPUT PREVIEW</span><span>AWAITING PROMPT</span></div>
+      </div>
+    </section>
+    <section class="history-section">
+      <div class="section-heading"><div><span class="step">03 / LIBRARY</span><h2>Твои проекты</h2></div><span class="count" id="job-count">0 PROJECTS</span></div>
+      <div id="jobs" class="jobs"><div class="empty">Пока здесь пусто. Первая идея может всё изменить.</div></div>
+    </section>
+    <footer><span>VISION AI © 2026</span><span>BUILT FOR THE NEXT FRAME.</span></footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
