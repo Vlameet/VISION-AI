@@ -1,13 +1,14 @@
 # VISION AI
 
-A small Node.js/Express MVP for an AI video creation studio.
+A Node.js/Express video-generation studio powered by fal.ai.
 
-## Current status
+## Features
 
 - Responsive Russian-language studio UI.
-- Prompt, visual style and duration selection.
-- Express API and demo project history.
-- **Demo mode only:** no video is rendered and no paid AI API is called.
+- Prompt and visual-style selection.
+- Server-side fal.ai queue integration.
+- Job status refresh and playable MP4 results.
+- API key stays on the server.
 
 ## Run locally
 
@@ -17,19 +18,22 @@ A small Node.js/Express MVP for an AI video creation studio.
 4. Run `npm start`.
 5. Open http://localhost:3000.
 
-## Deploy on Render
+## Enable real video generation
 
-Create a new **Web Service** from this repository.
+Video generation is disabled by default to prevent accidental paid requests.
+
+1. Create an API key in your fal.ai dashboard.
+2. Add these environment variables to your Render service:
+   - `FAL_KEY` = your private fal.ai API key
+   - `ENABLE_VIDEO_GENERATION` = `true`
+3. Redeploy the service.
+
+The integration uses the `minimax/h3-max-turbo/text-to-video` queue endpoint. Pricing is usage-based and can change. Check the current model price in fal.ai before enabling generation. Never expose `FAL_KEY` in frontend code or commit it to GitHub.
+
+## Render
 
 - Runtime: Node
 - Build command: `npm install`
 - Start command: `npm start`
-- Environment variable: `DEMO_MODE=true`
 
-Render provides the `PORT` variable automatically.
-
-## Before real video generation
-
-A provider such as fal.ai must be integrated on the server. Keep API keys in server-side environment variables only; never put them in frontend code. Confirm model pricing and set spending limits before enabling paid generation.
-
-The current JSON history file is suitable only for a prototype. On hosting platforms with ephemeral filesystems, history may reset on redeploy/restart. Use a database such as PostgreSQL for durable project storage.
+Render's filesystem may be ephemeral. The prototype JSON history can reset after restarts or deploys; use PostgreSQL for persistent production history.
